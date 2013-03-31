@@ -1,0 +1,39 @@
+extends layout
+
+block content
+    div(id='news', style="margin-top:42px;")
+      div(id="ri-grid", class="ri-grid ri-grid-size-2", style='margin:0px;padding-top:0px;overflow:hidden')
+        img(class="ri-loading-image", src="img/loading.gif")
+        ul
+          -var imgsr;
+          -for (i=1;i<=55;i++){
+          -imgsr="img/medium/"+i+".jpg"
+              li
+                a(href='#')
+                   img(src=imgsr)
+          -}
+    div(style="margin-top:0px; height:5px;background-color:#FFD700;")
+    div(style="margin-left:5px;height:100%;border-color:transparent;border-style:solid;border-right:thin double #FFD700;").span3
+      h4(style="color:#000;") News and Features
+      p The University of San Agustin is a private Catholic university in Iloilo City, Philippines, the first in Western Visayas.
+      p The Order of Saint Augustine (OSA) holds a stellar place in Philippine history. It is the oldest religious order in the country, its members having been the first missionaries to lead the highly successful evangelization of the Philippines.
+      p Famous Augustinians in Philippine history include Fray Andres de Urdaneta, Fray Martin de Rada, Fray Diego de Herrera and Fray Manuel Blanco.
+
+    div(style="margin:10px;text-align:justify;text-indent:50px;").span8
+      h3 Virtus et Scientia
+      p The University of San Agustin is a private Catholic university in Iloilo City, Philippines, the first in Western Visayas.
+      p The Order of Saint Augustine (OSA) holds a stellar place in Philippine history. It is the oldest religious order in the country, its members having been the first missionaries to lead the highly successful evangelization of the Philippines.
+      p Famous Augustinians in Philippine history include Fray Andres de Urdaneta, Fray Martin de Rada, Fray Diego de Herrera and Fray Manuel Blanco.
+      p The university was originally founded by the Spanish friars belonging to the Province of the Most Holy Name of Jesus of the Philippines and affiliated with the University of Santo Tomas of the Dominicans in Manila. It is now managed by the Philippine Province of the Augustinians and has been granted full autonomy by the Commission on Higher Education.
+      p The university houses some of the top schools and programs in the country: Its law school is among the country’s best (its bar topnotchers have included Supreme Court associate justice Carolina Griño,  Cornelio Gison, Wenseslao de la Paz, Mario Guarinia and  Dolores Abad-Alinio; its faculties in the sciences have produced top nurses, medical technologists and engineers; and its Liberal Arts and Education programs have produced top scholars, humanists and educators
+
+
+
+block addscript
+  script(type='text/javascript')
+    $(document).on('ready', function(){
+      $('#ri-grid').width($(window).innerWidth()-18);
+      $('#ri-grid').gridrotator({
+      rows: 2,columns: 21,animType: 'fadeInOut',animSpeed: 1000,
+      interval: 200,step: 1,w320:{rows: 3,columns: 4},w240:{rows: 3,columns: 4}});
+    });

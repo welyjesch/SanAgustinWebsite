@@ -1,0 +1,29 @@
+!!! 5
+html
+  include inc/header
+
+  body
+
+    div.navbar.navbar-fixed-top.navbar-inverse
+      div(style="height:3px;background-color:#FFD700")
+      div.navbar-inner
+        div(style='padding:0px').container-fluid
+          a( data-toggle='collapse', data-target='.nav-collapse').btn.btn-navbar
+            a(href='#',style='margin-left:5px;margin-top:-5px').brand
+              img(src='img/logo.png', style='margin-top:-10px')
+              h3(style='display:inline;padding-left:10px;color:#FFF;') #{brand}
+            ul.nav
+              -var obj = nvlist
+                -each linkitem in obj
+                  -if (id == linkitem.id)
+                    li.active
+                      a(href='#{linkitem.id}',style='padding-top:10px') #{linkitem.name}
+                  -else
+                    li
+                      a(href='#{linkitem.id}',style='padding-top:10px') #{linkitem.name}
+      div(style="height:3px;background-color:#FFD700")
+
+    block content
+    include inc/footer
+    include inc/scripts
+    block addscript
